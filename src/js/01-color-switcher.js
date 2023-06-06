@@ -7,8 +7,8 @@ function getRandomHexColor() {
 let intervalId;
 
 function startChangingColor() {
-  document.getElementById('startBtn').disabled = true;
-  document.getElementById('stopBtn').disabled = false;
+  document.querySelector('[data-start]').disabled = true;
+  document.querySelector('[data-stop]').disabled = false;
 
   intervalId = setInterval(() => {
     const newColor = getRandomHexColor();
@@ -17,17 +17,15 @@ function startChangingColor() {
 }
 
 function stopChangingColor() {
-  document.getElementById('startBtn').disabled = false;
-  document.getElementById('stopBtn').disabled = true;
+  document.querySelector('[data-start]').disabled = false;
+  document.querySelector('[data-stop]').disabled = true;
 
   clearInterval(intervalId);
 }
 
 document
-  .getElementById('startBtn')
+  .querySelector('[data-start]')
   .addEventListener('click', startChangingColor);
-document.getElementById('stopBtn').addEventListener('click', stopChangingColor);
-// document
-//   .getElementById('startBtn')
-//   .addEventListener('click', startChangingColor);
-// document.getElementById('stopBtn').addEventListener('click', stopChangingColor);
+document
+  .querySelector('[data-stop]')
+  .addEventListener('click', stopChangingColor);
